@@ -21,8 +21,13 @@ import deleteIcon from "./components/deleteIcon.js";
     const task = document.createElement('li'); //hacemos que se cree un elemento li en html
     task.classList.add("card"); //agregamos los estilos del css class="card"
     input.value = ""; // nos limpia el input
-
+    //backticks
     const taskContent = document.createElement("div");
+    const taskObj ={
+    value,
+    dateFormat
+    }
+    sessionStorage.setItem('tasks',JSON.stringify(taskObj))
     const titleTask = document.createElement("span");
     titleTask.classList.add("task");
     titleTask.innerText = value;
