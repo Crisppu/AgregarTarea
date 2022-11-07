@@ -1,14 +1,17 @@
 
-import checkComplete from "./components/checkComplete.js";
-import deleteIcon from "./components/deleteIcon.js";
+// import checkComplete from "./components/checkComplete.js";
+// import deleteIcon from "./components/deleteIcon.js";
+import { addTask } from "./components/addTask.js";
+
 (() => {
 
   const btn = document.querySelector("[data-form-btn]");
-  const addTask  = (evento) =>{
+  /*const addTask  = (evento) =>{
     const list = document.querySelector("[data-list]")// estamos ubicados en la etiqueta ul
     const task = createTask(evento);
     list.appendChild(task);
   }
+  const taskList = []; //creamos este listado para guardar informacion en el navegador
   const createTask = (evento) => {
     evento.preventDefault(); //evita que recargue la pagina
     const input = document.querySelector("[data-form-input]");
@@ -27,8 +30,9 @@ import deleteIcon from "./components/deleteIcon.js";
     value,
     dateFormat
     }
+    taskList.push(taskObj);
     //sessionStorage.setItem('tasks',JSON.stringify(taskObj))
-    localStorage.setItem('tareas',JSON.stringify(taskObj))
+    localStorage.setItem('tareas',JSON.stringify(taskList))
     const titleTask = document.createElement("span");
     titleTask.classList.add("task");
     titleTask.innerText = value;
@@ -43,7 +47,7 @@ import deleteIcon from "./components/deleteIcon.js";
     task.appendChild(deleteIcon());
     //list.appendChild(task);
     return task;
-  };
+  };*/
 
   btn.addEventListener("click", addTask);
 
