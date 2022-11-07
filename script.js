@@ -27,7 +27,8 @@ import deleteIcon from "./components/deleteIcon.js";
     value,
     dateFormat
     }
-    sessionStorage.setItem('tasks',JSON.stringify(taskObj))
+    //sessionStorage.setItem('tasks',JSON.stringify(taskObj))
+    localStorage.setItem('tareas',JSON.stringify(taskObj))
     const titleTask = document.createElement("span");
     titleTask.classList.add("task");
     titleTask.innerText = value;
