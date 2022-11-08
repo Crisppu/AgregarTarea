@@ -10,6 +10,11 @@ export const addTask = (evento) => {
    const value = input.value; //obtiene el contenido dentro del intup
    const date = calendario.value;
    const dateFormat = moment(date).format("DD/MM/YYYY");
+   
+   if(value === ""|| date === ""){
+    //console.log("no ejecutar")
+    return //colocamos un return para que nos retorne NADA
+  }
 
     input.value = ""; // nos limpia el input
     calendario.value = ""; // nos limpia el calendario
