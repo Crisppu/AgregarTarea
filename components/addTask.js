@@ -2,20 +2,24 @@ import checkComplete from "./checkComplete.js";
 import deleteIcon from "./deleteIcon.js";
 
 export const addTask = (evento) => {
-  const list = document.querySelector("[data-list]"); // estamos ubicados en la etiqueta ul
   evento.preventDefault(); //evita que recargue la pagina
-  const taskList = JSON.parse(localStorage.getItem("tareas")) || []; // traemos el listado de string que esta almacenado desde el navegador pero no podemos agg en el array sin antes convertirlo con JSON.parse()
-  console.log(taskList);
+  const list = document.querySelector("[data-list]"); // estamos ubicados en la etiqueta ul
   const input = document.querySelector("[data-form-input]");
   const calendario = document.querySelector("[data-form-date]");
+
   const value = input.value; //obtiene el contenido dentro del intup
   const date = calendario.value;
   const dateFormat = moment(date).format("DD/MM/YYYY");
+
   input.value = ""; // nos limpia el input
+  calendario.value = ""; // nos limpia el calendario
+
   const taskObj = {
     value,
     dateFormat
   };
+  
+  const taskList = JSON.parse(localStorage.getItem("tareas")) || []; // traemos el listado de string que esta almacenado desde el navegador pero no podemos agg en el array sin antes convertirlo con JSON.parse()
   taskList.push(taskObj);
   localStorage.setItem("tareas", JSON.stringify(taskList)); //convertimos de objeto a string para que se almacene desde el navegador "application" - JSON.stringify
   const task = createTask(taskObj);
