@@ -1,15 +1,21 @@
+import { uniqueDates } from "../services/date.js";
 import { createTask } from "./addTask.js";
 import dateElement from "./dateElement.js";
-export const readTasks = () =>{
+export const readTasks = () => {
     const list = document.querySelector("[data-list]");
-    //console.log(list)
-const tasksList = JSON.parse(localStorage.getItem("tareas")) || [];
-    //console.log(dateElement('01/10/2000'))
-
-console.log(tasksList)
-tasksList.forEach((task) => {
-    list.appendChild(dateElement(task.dateFormat))
-    //console.log(createTask(task))
-    list.appendChild(createTask(task))
-});
-}
+    const tasksList = JSON.parse(localStorage.getItem("tareas")) || [];
+    const dates = uniqueDates(tasksList);
+    dates.forEach((date) => {
+        //console.log(date);
+        const dateMoment = moment(date, 'DD/MM/YYYY');
+        list.appendChild(dateElement(date));
+        tasksList.forEach((task) => {
+            const taskDate = moment(task.dateFormat, 'DD/MM/YYYY');
+            const diff = dateMoment.diff(taskDate);// sacamos la diferencias con el metodo diff
+            //console.log(diff)
+            if(diff === 0){
+                list.appendChild(createTask(task));
+            }
+        });
+    });
+};
