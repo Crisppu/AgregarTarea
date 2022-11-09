@@ -2,7 +2,7 @@
 // import checkComplete from "./components/checkComplete.js";
 // import deleteIcon from "./components/deleteIcon.js";
 import { addTask } from "./components/addTask.js";
-import { readTasks } from "./components/readTasks.js";
+import { readTasks } from "./components/readTasks.js";// se le cambio de nombre readTasks a displayTasks
 (() => {
 
   const btn = document.querySelector("[data-form-btn]");
@@ -50,5 +50,5 @@ import { readTasks } from "./components/readTasks.js";
   };*/
 
   btn.addEventListener("click", addTask);
-  readTasks();
+  readTasks();// se le cambio de nombre readTasks a displayTasks
 })() //immediately invoked function expression IIFE
